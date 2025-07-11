@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-gray-50;
+  }
+
+  h1 {
+    @apply text-3xl font-bold mb-4;
+  }
+
+  h2 {
+    @apply text-2xl font-bold mb-3;
+  }
+
+  h3 {
+    @apply text-xl font-semibold mb-2;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300;
+
+    &:hover {
+      @apply shadow-xl;
+    }
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200 transform;
+
+    &:hover {
+      @apply scale-105;
+    }
+
+    &:active {
+      @apply scale-95;
+    }
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 text-white hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200;
+
+    &:hover {
+      @apply border-gray-400;
+    }
+
+    &:focus {
+      @apply outline-none;
+    }
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  .winning {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .losing {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .config-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+
+    .config-section {
+      @apply space-y-4;
+    }
+  }
+
+  .strategy-selector {
+    @apply relative;
+
+    select {
+      @apply appearance-none bg-white pr-8;
+    }
+
+    &::after {
+      content: "▼";
+      @apply absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none;
+    }
+  }
+
+  .config-list {
+    @apply space-y-2;
+
+    .config-item {
+      @apply flex items-center justify-between p-3 bg-gray-50 rounded-md hover:bg-gray-100 transition-colors duration-200;
+
+      .config-actions {
+        @apply flex gap-2 opacity-0 transition-opacity duration-200;
+      }
+
+      &:hover .config-actions {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  .mode-toggle {
+    @apply px-3 py-1 rounded-full text-sm font-medium transition-all duration-200;
+
+    &.simple {
+      @apply bg-blue-100 text-blue-800;
+    }
+
+    &.advanced {
+      @apply bg-purple-100 text-purple-800;
+    }
+  }
+
+  .reset-button {
+    @apply p-1 rounded-full hover:bg-gray-100 transition-all duration-200;
+
+    &:hover {
+      @apply rotate-180;
+    }
+  }
+}
