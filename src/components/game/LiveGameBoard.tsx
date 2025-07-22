@@ -151,12 +151,13 @@ export default function LiveGameBoard({ gameConfig, gameState, positions, onMake
     gameState.currentPlayer === 1 ? gameConfig.player1Strategy === "Human" : gameConfig.player2Strategy === "Human"
 
   return (
-    <div className="card mb-8">
+    <div className="card mb-8" style={{ backgroundColor: "var(--color-bg)" }}>
       <div className="flex justify-between items-center mb-6">
         <h2>Live Game</h2>
         <button
           onClick={() => setHelpMode(!helpMode)}
-          className="text-sm text-blue-600 hover:text-blue-800"
+          style={{ color: "var(--color-accent)" }}
+          className="text-sm"
         >
           {helpMode ? "Disable Help" : "Enable Help"}
         </button>
@@ -165,13 +166,15 @@ export default function LiveGameBoard({ gameConfig, gameState, positions, onMake
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
           <div
-            className={`text-lg font-medium ${gameState.currentPlayer === 1 ? "text-blue-600" : "text-gray-600"}`}
+            className={`text-lg font-medium`}
+            style={{ color: gameState.currentPlayer === 1 ? "var(--color-accent)" : undefined }}
           >
             Player 1 ({gameConfig.player1Strategy})
           </div>
           <div className="text-lg">vs</div>
           <div
-            className={`text-lg font-medium ${gameState.currentPlayer === 2 ? "text-blue-600" : "text-gray-600"}`}
+            className="text-lg font-medium"
+            style={{ color: gameState.currentPlayer === 2 ? "var(--color-accent)" : undefined }}
           >
             Player 2 ({gameConfig.player2Strategy})
           </div>
@@ -189,14 +192,12 @@ export default function LiveGameBoard({ gameConfig, gameState, positions, onMake
               return (
                 <div
                   key={index}
-                  className={`p-3 rounded-md transition-all duration-200 ${selectedPileIndex === index && isCurrentPlayerHuman
-                    ? "bg-blue-50 border-2 border-blue-500"
-                    : "bg-white border border-gray-300"
-                    }`}
+                  className={`p-3 rounded-md transition-all duration-200`}
+                  style={selectedPileIndex === index && isCurrentPlayerHuman ? { backgroundColor: "var(--color-accent)", border: `2px solid var(--color-accent)` } : { backgroundColor: "white", border: "1px solid #ccc" }}
                   onClick={() => isCurrentPlayerHuman && setSelectedPileIndex(index)}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <div className="text-sm text-gray-600">Pile {index + 1}</div>
+                    <div className="text-sm" style={{ color: "var(--color-accent)" }}>Pile {index + 1}</div>
                     {helpMode && isCurrentPlayerHuman && winningMoves.length > 0 && (
                       <div className="text-xs text-green-600">
                         {winningMoves.length} winning move{winningMoves.length > 1 ? 's' : ''}
@@ -225,7 +226,7 @@ export default function LiveGameBoard({ gameConfig, gameState, positions, onMake
               {timeLeft !== null && (
                 <div className="flex items-center gap-2">
                   <div className="text-sm text-gray-600">Time Left:</div>
-                  <div className="px-3 py-1 bg-blue-100 text-blue-800 rounded-md font-mono text-lg">
+                  <div className="px-3 py-1 rounded-md font-mono text-lg" style={{ backgroundColor: "var(--color-accent)", color: "white" }}>
                     {timeLeft}s
                   </div>
                 </div>

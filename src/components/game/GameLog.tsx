@@ -41,8 +41,11 @@ export default function GameLog({ moveHistory, winner, gameState }: GameLogProps
               >
                 <td className="p-2 border font-mono">{record.turn}</td>
                 <td className="p-2 border">
-                  <span className={`font-medium ${record.player === 1 ? "text-blue-600" : "text-red-600"}`}>
-                    Player {record.player}
+                  <span
+                    className="font-medium"
+                    style={{ color: record.player === 1 ? "var(--color-accent)" : undefined }}
+                  >
+                    {record.player === 1 ? "Player 1" : "Player 2"}
                   </span>
                 </td>
                 <td className="p-2 border">

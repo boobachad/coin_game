@@ -191,7 +191,7 @@ int main() {
         <h2>Strategy Definition and Testing</h2>
 
         <div className="mb-6">
-          <h3 className="text-blue-600">Custom Algorithm Coding</h3>
+          <h3 className="mb-2" style={{ color: "var(--color-accent)" }}>Custom Algorithm Coding</h3>
           <p>
             The primary way to define strategies is by writing your own JavaScript functions directly in the in-browser editor on the
             <span className="font-semibold"> Algorithm Testing</span> page. You can:

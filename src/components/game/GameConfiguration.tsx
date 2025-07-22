@@ -125,12 +125,13 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
   }
 
   return (
-    <div className="card">
+    <div className="card" style={{ backgroundColor: "var(--color-bg)" }}>
       <div className="flex justify-between items-center mb-6">
         <h2>Game Configuration</h2>
         <button
           onClick={() => setIsAdvancedMode(!isAdvancedMode)}
-          className="text-sm text-blue-600 hover:text-blue-800"
+          style={{ color: "var(--color-accent)" }}
+          className="text-sm"
         >
           {isAdvancedMode ? "Basic Mode" : "Advanced Mode"}
         </button>
@@ -154,14 +155,15 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
               />
               <button
                 onClick={() => setPileSizesStr("21")}
-                className="text-sm text-gray-600 hover:text-gray-800"
+                style={{ color: "var(--color-accent)" }}
+                className="text-sm"
                 title="Reset to default"
                 disabled={isSimulating}
               >
-                ↺
+                1ba
               </button>
             </div>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm mt-1" style={{ color: "var(--color-accent)" }}>
               Enter comma-separated numbers for pile sizes
             </p>
           </div>
@@ -182,14 +184,15 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
               />
               <button
                 onClick={() => setAllowedMovesStr("1,3,4")}
-                className="text-sm text-gray-600 hover:text-gray-800"
+                style={{ color: "var(--color-accent)" }}
+                className="text-sm"
                 title="Reset to default"
                 disabled={isSimulating}
               >
-                ↺
+                1ba
               </button>
             </div>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm mt-1" style={{ color: "var(--color-accent)" }}>
               Enter comma-separated numbers for valid moves
             </p>
           </div>
@@ -211,14 +214,15 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
                 />
                 <button
                   onClick={() => setMoveTimeLimit(0)}
-                  className="text-sm text-gray-600 hover:text-gray-800"
+                  style={{ color: "var(--color-accent)" }}
+                  className="text-sm"
                   title="Reset to default"
                   disabled={isSimulating}
                 >
-                  ↺
+                  1ba
                 </button>
               </div>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className="text-sm mt-1" style={{ color: "var(--color-accent)" }}>
                 0 = no time limit
               </p>
             </div>
@@ -270,6 +274,7 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
         <button
           onClick={handleStartGame}
           className="btn btn-primary"
+          style={{ backgroundColor: "var(--color-accent)", color: "white" }}
           disabled={isSimulating}
         >
           Start Game
@@ -278,7 +283,7 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
 
       {/* Saved Configurations */}
       <div className="mt-6">
-        <h3 className="text-lg font-semibold mb-2">Saved Configurations</h3>
+        <h3 className="text-lg font-semibold mb-2" style={{ color: "var(--color-accent)" }}>Saved Configurations</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {Object.entries(savedConfigs).map(([name, config]) => (
             <div key={name} className="card p-4">
@@ -287,14 +292,16 @@ export default function GameConfiguration({ onStartGame, isSimulating }: GameCon
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleLoadConfig(name)}
-                    className="text-sm text-blue-600 hover:text-blue-800"
+                    style={{ color: "var(--color-accent)" }}
+                    className="text-sm"
                     disabled={isSimulating}
                   >
                     Load
                   </button>
                   <button
                     onClick={() => handleDeleteConfig(name)}
-                    className="text-sm text-red-600 hover:text-red-800"
+                    style={{ color: "var(--color-accent)" }}
+                    className="text-sm"
                     disabled={isSimulating}
                   >
                     Delete
