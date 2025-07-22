@@ -1,8 +1,14 @@
 @import 'tailwindcss';
 
+:root {
+  --color-bg: #111;
+  --color-accent: theme('colors.blue.500');
+}
+
 @layer base {
   body {
-    @apply text-gray-900 bg-gray-50;
+    @apply text-gray-900;
+    background-color: var(--color-bg);
   }
 
   h1 {
@@ -41,6 +47,12 @@
 
   .btn-primary {
     @apply bg-blue-600 text-white hover:bg-blue-700;
+    background-color: var(--color-accent);
+    color: white;
+
+    &:hover {
+      background-color: theme('colors.blue.700');
+    }
   }
 
   .btn-secondary {
@@ -113,6 +125,8 @@
 
     &.simple {
       @apply bg-blue-100 text-blue-800;
+      background-color: var(--color-accent);
+      color: white;
     }
 
     &.advanced {
